@@ -1,0 +1,25 @@
+{
+  "name": "skipper",
+  "version": "1.0.0",
+  "description": "Automatic Timesheet Processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js --check-connection"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sciencegirl100/skipper.git"
+  },
+  "keywords": [
+    "google",
+    "sheets",
+    "card",
+    "timecard"
+  ],
+  "author": "Elizabeth Anne Cray",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sciencegirl100/skipper/issues"
+  },
+  "homepage": "https://github.com/sciencegirl100/skipper#readme"
+}

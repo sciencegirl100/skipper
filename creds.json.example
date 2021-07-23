@@ -1,0 +1,13 @@
+{
+    "SHEET_ID": "SHEETS ID FROM URL",
+    "API_CRED_FILE": "NAME OF json file",
+    "mail": {
+        "server": "smtp.gmail.com",
+        "user": "liz@gmail.com",
+        "pass": "gmail app password",
+        "port": 587,
+        "from": "\"Elizabeth Timecard Skipper\" <liz@gmail.com>",
+        "sendTo": "liz@gmail.com",
+        "subject": "Elizabeth's Weekly Timesheet"
+    }
+}

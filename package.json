@@ -4,7 +4,8 @@
   "description": "Automatic Timesheet Processor",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js --check-connection"
+    "test": "node index.js --check-connection",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/sciencegirl100/skipper/issues"
   },
-  "homepage": "https://github.com/sciencegirl100/skipper#readme"
+  "homepage": "https://github.com/sciencegirl100/skipper#readme",
+  "dependencies": {
+    "googleapis": "^82.0.0",
+    "nodemailer": "^6.6.3"
+  }
 }

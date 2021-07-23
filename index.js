@@ -173,24 +173,37 @@ async function ProcessSheet(){
                 // week start, monday... sunday, total
                 [
                     getLastMonday().toISOString().substring(0, 10),
-                    parseFloat(times[0][4]),     // Monday
-                    parseFloat(times[1][4]),     // Tuesday
-                    parseFloat(times[2][4]),     // Wednesday
-                    parseFloat(times[3][4]),     // Thursday
-                    parseFloat(times[4][4]),     // Friday
-                    parseFloat(times[5][4]),     // Saturday
-                    parseFloat(times[6][4]),     // Sunday
+                    times[0][4],     // Monday
+                    times[1][4],     // Tuesday
+                    times[2][4],     // Wednesday
+                    times[3][4],     // Thursday
+                    times[4][4],     // Friday
+                    times[5][4],     // Saturday
+                    times[6][4],     // Sunday
                     totalTime,     // Total
                 ],
             ]
         }
     });
+    // Build email attachment for bookeeping
+    var attachment = "# Elizabeth's Timesheet\n\n"+getLastMonday().toISOString().substring(0, 10)+"\n\n";
+    attachment += "|Day|Time In|Time Out|Time In|Time Out|Total|\n|--|--|--|--|--|--|\n";
+    for(var i=0; i<days.length; i++){
+        attachment += "|"+days[i]+"|"+times[i][0]+"|"+times[i][1]+"|"+times[i][2]+"|"+times[i][3]+"|"+times[i][4]+"|\n";
+    }
+    attachment += "\nTotal Time: "+totalTime+"\n";
     // Send Email
     var mailInfo = await transporter.sendMail({
         from: creds.mail.from,
         to: creds.mail.sendTo,
         subject: creds.mail.subject,
-        html: email
+        html: email,
+        attachments: [
+            {
+                filename: 'Elizabeth-'+getLastMonday().toISOString().substring(0, 10)+'.md',
+                content: attachment,
+            }
+        ],
     });
     console.log("Sent!");
 }
